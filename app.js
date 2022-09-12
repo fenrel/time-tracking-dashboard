@@ -41,7 +41,7 @@ function App() {
     const [period, setPeriod] = React.useState({"name": "Week", "period": "weekly"});
 
     React.useEffect(() => {
-        fetch('/data.json')
+        fetch('./data.json')
             .then(res => res.json())
             .then(data => setData(data));
     }, []);
