@@ -1,0 +1,236 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Rubik;
+    background-color: hsl(226, 43%, 10%);
+}
+
+#root {
+    display: grid;
+    /* flex-direction: column; */
+    /* align-items: center; */
+    justify-content: center;
+    gap: 2rem;
+}
+
+.user {
+    max-width: 360px;
+    color: white;
+    background-color: hsl(235, 46%, 20%);
+    border-radius: 0 0 8px 8px;
+}
+
+.user__header {
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    gap: 1rem;
+    background-color: hsl(246, 80%, 60%);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.user__header img {
+    width: 23%;
+}
+
+.user__report-title {
+    font-size: 18px;
+    margin: 0;
+}
+
+.user__name {
+    font-size: 30px;
+    margin: 0;
+}
+
+.user__periods {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0;
+    font-size: 18px;
+    margin: 0;
+    padding: 1.5rem;
+    color: hsl(236, 100%, 87%);
+}
+
+.user__periods li {
+    cursor: pointer;
+}
+
+.user__period--active {
+    color: white;
+    font-weight: 500;
+}
+
+.activity {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 1rem;
+    background-color: hsl(235, 46%, 20%);
+    color: white;
+    border-radius: 1rem;
+    min-width: 360px;
+    max-width: 360px;
+}
+
+.activity img {
+    padding-right: 2rem;
+    place-self: center;
+    justify-self: end;
+}
+
+.activity__image-top {
+    position: relative;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    grid-column: span 2;
+    height: 2rem;
+}
+
+.activity__image-top::before {
+    position: absolute;
+    content: "";
+
+    border-top-left-radius: 1rem;
+    background-color: hsl(235, 46%, 20%);
+    box-shadow: 0 -1rem 0 0;
+    top: 2rem;
+    width: 1rem;
+    height: 2rem;
+}
+.activity__image-top::after {
+    position: absolute;
+    content: "";
+
+    border-top-right-radius: 1rem;
+    background-color: hsl(235, 46%, 20%);
+    box-shadow: 0 -1rem 0 0;
+    top: 2rem;
+    left: calc(360px - 1rem);
+    width: 1rem;
+    height: 2rem;
+}
+
+.activity__name {
+    place-self: center;
+    justify-self: start;
+    padding-left: 2rem;
+    z-index: 100;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.activity__current-dur {
+    place-self: center;
+    justify-self: start;
+    padding-left: 2rem;
+    padding-bottom: 1rem;
+    margin: 0;
+    font-size: 34px;
+    font-weight: 400;
+}
+
+.activity__previous-dur {
+    place-self: center;
+    justify-self: end;
+    padding-right: 2rem;
+    padding-bottom: 1rem;
+    margin: 0;
+    color: hsl(236, 100%, 87%);
+    font-weight: 300;
+}
+
+.bg--light-red {
+    background-color: hsl(15, 100%, 70%);
+    color: hsl(15, 100%, 70%);
+}
+
+.bg--soft-blue {
+    background-color: hsl(195, 74%, 62%);
+    color: hsl(195, 74%, 62%);
+}
+
+.bg--red {
+    background-color: hsl(348, 100%, 68%);
+    color: hsl(348, 100%, 68%);
+}
+
+.bg--lime-green {
+    background-color: hsl(145, 58%, 55%);
+    color: hsl(145, 58%, 55%);
+}
+
+.bg--violet {
+    background-color: hsl(264, 64%, 52%);
+    color: hsl(264, 64%, 52%);
+}
+
+.bg--soft-orange {
+    background-color: hsl(43, 84%, 65%);
+    color: hsl(43, 84%, 65%);
+}
+
+@media (min-width: 1000px) {
+    body {
+        display: flex;
+        height: calc(100vh - 1rem);
+        justify-content: center;
+        align-items: center;
+    }
+
+    #root {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 1000px;
+    }
+
+    .user {
+        width: 230px;
+        height: 500px;
+        grid-row: span 2;
+    }
+
+    .activity {
+        max-width: 230px;
+        min-width: 230px;
+        grid-template-columns: 3fr 1fr;
+        grid-template-rows: 4;
+        gap: 0;
+    }
+
+    .activity__current-dur {
+        padding-bottom: 0;
+        align-self: end;
+    }
+
+    .activity__previous-dur {
+        grid-row-start: 4;
+        place-self: start;
+        white-space: nowrap;
+        padding: 0;
+        padding-left: 2rem;
+    }
+
+    .activity__image-top::after {
+        left: calc(230px - 1rem);
+    }
+
+    .user__header img {
+        width: 40%;
+    }
+
+    .user__header {
+        flex-direction: column;
+        height: 65%;
+    }
+
+    .user__periods {
+        gap: 1.5rem;
+        flex-direction: column;
+    }
+
+}
